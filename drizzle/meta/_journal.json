@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1717766364225,
+      "tag": "0000_unusual_absorbing_man",
+      "breakpoints": true
+    }
+  ]
+}
