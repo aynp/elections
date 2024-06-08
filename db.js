@@ -1,6 +1,10 @@
-import { drizzle } from "drizzle-orm/bun-sqlite";
-import { Database } from "bun:sqlite";
+import { drizzle } from 'drizzle-orm/postgres-js';
+import postgres from 'postgres';
 
-const sqlite = new Database("sqlite.db");
+console.log(Bun.env.DB_URI)
 
-export const db = drizzle(sqlite);
+export const migrationClient = postgres(process.env.DB_URI, { max: 1 });
+export const migrate_db = drizzle(migrationClient);
+
+export const queryClient = postgres(process.env.DB_URI, { max: 10 });
+export const db = drizzle(queryClient);

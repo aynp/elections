@@ -1,9 +1,9 @@
 import { JSDOM } from "jsdom"
 import axios from "axios"
-import { db } from "./db";
+import { migrate_db, db, migrationClient, queryClient } from "./db";
 import { sql } from "drizzle-orm";
 import { state, party, constituency, candidate } from "./schema";
-import { migrate } from "drizzle-orm/bun-sqlite/migrator";
+import { migrate } from "drizzle-orm/postgres-js/migrator";
 
 async function getAllParties() {
   const dom = await axios.get("https://results.eci.gov.in/PcResultGenJune2024/index.htm")
@@ -158,7 +158,8 @@ async function getAllCandidates() {
 }
 
 async function main() {
-  await migrate(db, { migrationsFolder: './drizzle' });
+  await migrate(migrate_db, { migrationsFolder: './drizzle' });
+  console.log("Migrated")
 
   await getAllStates()
   await getAllParties()
