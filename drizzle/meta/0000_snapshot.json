@@ -1,7 +1,7 @@
 {
   "version": "6",
   "dialect": "sqlite",
-  "id": "ca0fee2e-d87a-402a-b3cb-39d1b124672e",
+  "id": "4a736f76-4087-4b36-b8aa-44a15eb05c8a",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "tables": {
     "candidate": {
@@ -39,29 +39,33 @@
           "name": "postal_votes",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
         },
         "evm_votes": {
           "name": "evm_votes",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
         },
         "total_votes": {
           "name": "total_votes",
           "type": "integer",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": 0
         },
         "vote_percentage": {
           "name": "vote_percentage",
           "type": "real",
           "primaryKey": false,
-          "notNull": false,
-          "autoincrement": false
+          "notNull": true,
+          "autoincrement": false,
+          "default": 100
         }
       },
       "indexes": {},

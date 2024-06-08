@@ -24,8 +24,8 @@ export const candidate = sqliteTable("candidate", {
   name: text("name"),
   partyId: integer("party_id").references(() => party.id),
   constituencyId: integer("constituency_id").references(() => constituency.id),
-  postalVotes: integer("postal_votes"),
-  evmVotes: integer("evm_votes"),
-  totalVotes: integer("total_votes"),
-  votePercentage: real("vote_percentage"),
+  postalVotes: integer("postal_votes").notNull().default(0),
+  evmVotes: integer("evm_votes").notNull().default(0),
+  totalVotes: integer("total_votes").notNull().default(0),
+  votePercentage: real("vote_percentage").notNull().default(100),
 });

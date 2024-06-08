@@ -142,10 +142,10 @@ async function getAllCandidates() {
         name: candidateName,
         partyId: partyId,
         constituencyId: constituency.id,
-        evmVotes: parseInt(evmVotes),
-        postalVotes: parseInt(postalVotes),
-        totalVotes: parseInt(totalVotes),
-        votePercentage: parseFloat(percentage),
+        evmVotes: parseInt(evmVotes) || 0,
+        postalVotes: parseInt(postalVotes) || 0,
+        totalVotes: parseInt(totalVotes) || 0,
+        votePercentage: parseFloat(percentage) || 100,
       })
     }
 

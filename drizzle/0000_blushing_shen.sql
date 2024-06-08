@@ -3,10 +3,10 @@ CREATE TABLE `candidate` (
 	`name` text,
 	`party_id` integer,
 	`constituency_id` integer,
-	`postal_votes` integer,
-	`evm_votes` integer,
-	`total_votes` integer,
-	`vote_percentage` real,
+	`postal_votes` integer DEFAULT 0 NOT NULL,
+	`evm_votes` integer DEFAULT 0 NOT NULL,
+	`total_votes` integer DEFAULT 0 NOT NULL,
+	`vote_percentage` real DEFAULT 100 NOT NULL,
 	FOREIGN KEY (`party_id`) REFERENCES `party`(`id`) ON UPDATE no action ON DELETE no action,
 	FOREIGN KEY (`constituency_id`) REFERENCES `constituency`(`id`) ON UPDATE no action ON DELETE no action
 );
